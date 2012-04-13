@@ -1,0 +1,17 @@
+{
+    "name": "twitterReplyAll",
+    "version": "0.1",
+    "description": "Use it when Zillion of people mentiones you",
+    "icons" : {
+    	"16" : "icon16.png",
+    	"48" : "icon48.png",
+    	"128" : "icon128.png"
+    },
+    "content_scripts": [
+	{
+	    "matches": ["https://twitter.com/*"],
+        "css":  ["twitterReplyAll.css"],
+	    "js": ["jquery.js", "twitterReplyAll.js"]
+	}
+    ]
+}
