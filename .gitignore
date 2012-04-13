@@ -33,3 +33,5 @@ RCSLOG
 SCCS
 _$*
 _svn
+
+private/*
