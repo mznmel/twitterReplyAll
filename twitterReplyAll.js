@@ -106,6 +106,10 @@
                 $(".tra-checkboxImgSelected")
                     .removeClass("tra-checkboxImgSelected")
                     .fadeTo('fast', 0.4);
+                
+                
+                
+                // we don't have to invoke twitter widget by ourself anymore!
                 /*
 				var replyBox = new twttr.widget.ReplyDialog(
 					{modal: true, draggable: true, multiple: true,
