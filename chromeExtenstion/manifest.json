@@ -2,6 +2,7 @@
     "name": "twitterReplyAll",
     "version": "0.1",
     "description": "Use it when Zillion of people mentiones you",
+    "update_url": "http://rod.3600.ws/cExt/updates.xml"    
     "icons" : {
     	"16" : "icon16.png",
     	"48" : "icon48.png",
