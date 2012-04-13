@@ -34,4 +34,9 @@ SCCS
 _$*
 _svn
 
+
+# this project's .gitignore
 private/*
+# ignore extension-package's files
+*.pem
+*.crx
