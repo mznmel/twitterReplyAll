@@ -77,11 +77,13 @@
 
         // the code that's going to be run inside twitter.com webpage 
         function internalCode() {
-            $("#global-actions").append(
-            	$("<li>").append(
-            		'<a href="#" class="tra-actionButton" onclick="doReplyAll()">Reply All</a>'
-            	)	
-            );
+            window.onload = function() {
+                $("#global-actions").append(
+            	    $("<li>").append(
+            		    '<a href="#" class="tra-actionButton" onclick="doReplyAll()">Reply All</a>'
+            	    )	
+                );
+            };
 
             window.doReplyAll = function(e) {
                 var usernames = [];
@@ -92,21 +94,20 @@
                     usernames.push("@" + username);
 
                     // TODO: a more effiecent way to handle this!
-                    lastTweetId = $(this).parent().parent().parent().data("tweet-id");
                     lastScreenName = username;
                 });
 
 
                 var replyTo = usernames.join(" ");
-                $(".tra-checkboxImgSelected").last().parent().parent().find("a.js-action-reply")
+                
+                $(".tra-checkboxImgSelected").first().parent().parent().find("a.js-action-reply b")
                         .trigger("click");
 
-                $("textarea.twitter-anywhere-tweet-box-editor").val(replyTo + " ");
+                setTimeout(function(){$(".tweet-box").val(replyTo + " ");}, 1500);
 
                 $(".tra-checkboxImgSelected")
                     .removeClass("tra-checkboxImgSelected")
                     .fadeTo('fast', 0.4);
-                
                 
                 
                 // we don't have to invoke twitter widget by ourself anymore!
@@ -137,6 +138,12 @@
             }
         }
 
+        // inject jQuery
+        var jQScript = document.createElement('script');
+        jQScript.src = "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js";
+        document.head.appendChild(jQScript);
+
+        // inject internal code
         source = '(' + internalCode + ')();';
         var script = document.createElement('script');
         script.setAttribute("type", "application/javascript");
